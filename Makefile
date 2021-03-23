@@ -1,7 +1,7 @@
 # compiles each of the .c files individually (hacky makefile)
 SRCS = $(wildcard *.c)
 EXECUTABLES = $(basename $(SRCS))
-OUTPUT_DIR = "bin"
+OUTPUT_DIR = bin
 
 all: $(OUTPUT_DIR) $(EXECUTABLES)
 
@@ -12,5 +12,5 @@ $(EXECUTABLES): $(SRCS)
 	gcc $(@:=.c) -o $(OUTPUT_DIR)/$@
 
 clean:
-	rm $(EXECUTABLES)
+	rm $(addprefix $(OUTPUT_DIR)/, $(EXECUTABLES))
 
