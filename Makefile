@@ -12,7 +12,7 @@ $(OUTPUT_DIR):
 	mkdir -p $(OUTPUT_DIR)
 
 $(EXECUTABLES): $(SRCS)
-	gcc $(@:=.c) -o $(OUTPUT_DIR)/$@
+	gcc -Wall $(@:=.c) -o $(OUTPUT_DIR)/$@
 
 $(ASM_EXES): $(ASM_SRCS)
 	nasm -f elf64 $(@:=.asm) -o $(OUTPUT_DIR)/$(@:=.o)
